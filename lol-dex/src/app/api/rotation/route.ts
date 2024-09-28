@@ -2,7 +2,7 @@ import { ChampionRotation } from "@/types/ChampionRotation";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-	const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY!;
+	const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY;
 
 	if (!apiKey) {
 		return NextResponse.json(
@@ -33,6 +33,6 @@ export async function GET() {
 			{ status: 500 }
 		);
 	}
-	const data: ChampionRotation = await res.json();
+	const data: ChampionRotation[] = await res.json();
 	return NextResponse.json(data);
 }
