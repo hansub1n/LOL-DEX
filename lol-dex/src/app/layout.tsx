@@ -27,17 +27,17 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#131313] text-[#ffffff] font-HeirofLight font-bold`}
 			>
-				<header className="w-full">
-					<nav className="flex justify-around">
-						<Link href={"/"}>Home</Link>
+				<header className="z-[1000] w-full top-0 fixed bg-[#131313] shadow-md">
+					<nav className="flex justify-around p-4 w-[1000px] m-auto">
+						<Link href={"/"}>홈</Link>
 						<Link href={"/champions"}>챔피언 목록</Link>
 						<Link href={"/items"}>아이템 목록</Link>
 						<Link href={"/rotation"}>챔피언 로테이션</Link>
 					</nav>
 				</header>
-				{children}
+				<div className="mt-[55.99px]">{children}</div>
 			</body>
 		</html>
 	);
