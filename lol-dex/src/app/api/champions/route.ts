@@ -31,8 +31,6 @@ export async function GET() {
 	}
 
 	const data = await res.json();
-	console.log("Champion Data: ", data);
 	const champions: Champion[] = Object.values(data.data);
-	// return champions;
 	return NextResponse.json(champions);
 }

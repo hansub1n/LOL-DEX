@@ -13,6 +13,7 @@ const ChampionsPage = async () => {
 
 	return (
 		<div>
+			<h2>챔피언 목록</h2>
 			<ChampionCard data={data} />
 		</div>
 	);

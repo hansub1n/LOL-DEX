@@ -5,37 +5,40 @@ export type Item = {
 	colloq: string;
 	plaintext: string;
 	specialRecipe: number;
-	image: {
-		full: string;
-		sprite: string;
-		group: string;
-		x: number;
-		y: number;
-		w: number;
-		h: number;
-	};
-	gold: {
-		base: number;
-		purchasable: boolean;
-		total: number;
-		sell: number;
-	};
+	image: ItemImage;
+	gold: ItemGold;
 	tags: string[];
-	maps: {
-		[mapId: number]: boolean;
-	};
-	stats: {
-		[statKey: string]: number;
-	};
-	effect: {
-		Effect1Amount: string;
-		Effect2Amount: string;
-		Effect3Amount: string;
-		Effect4Amount: string;
-		Effect5Amount: string;
-		Effect6Amount: string;
-		Effect7Amount: string;
-		Effect8Amount: string;
-	};
+	maps: ItemMaps;
+	stats: ItemStats;
+	effect: ItemEffect;
 	depth: number;
+};
+
+type ItemImage = {
+	full: string;
+	sprite: string;
+	group: string;
+	x: number;
+	y: number;
+	w: number;
+	h: number;
+};
+
+type ItemGold = {
+	base: number;
+	purchasable: boolean;
+	total: number;
+	sell: number;
+};
+
+type ItemMaps = {
+	[mapId: number]: boolean;
+};
+
+type ItemStats = {
+	[statKey: string]: number;
+};
+
+type ItemEffect = {
+	[key: string]: string;
 };

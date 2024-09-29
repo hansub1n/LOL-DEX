@@ -23,9 +23,9 @@ export async function fetchChampions() {
 			}
 		);
 		const data = await res.json();
-
+		// console.log(data);
 		const champions: Champion[] = Object.values(data.data);
-		// console.log("챔피언목록 호출됨: " + champions[0].name);
+		// console.log("챔피언목록 호출됨: " + champions);
 		return champions;
 	} catch (error) {
 		console.log(error);
@@ -45,9 +45,12 @@ export async function fetchChampionDetail(id: string) {
 			}
 		);
 		const data = await res.json();
+		const champion: Champion = data.data[id];
+		console.log(champion);
+
 		// console.log("Champion Detail Data: ", data);
 
-		return data;
+		return champion;
 	} catch (error) {
 		console.log(error);
 	}
@@ -65,7 +68,7 @@ export async function fetchItemList() {
 			}
 		);
 		const data = await res.json();
-		console.log("Item Data: ", data);
+		// console.log("Item Data: ", data);
 		const items: Item[] = Object.values(data.data);
 		return items;
 	} catch (error) {

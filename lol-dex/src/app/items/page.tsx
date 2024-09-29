@@ -6,7 +6,7 @@ import React from "react";
 
 const ItemPage = async () => {
 	const data = await fetchItemList();
-	console.log(data);
+	// console.log(data);
 
 	if (!data) {
 		return <div>Loading...</div>;
