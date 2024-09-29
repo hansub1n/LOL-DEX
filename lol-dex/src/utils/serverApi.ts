@@ -1,3 +1,4 @@
+"use server";
 import { Champion } from "@/types/Champion";
 import { Item } from "@/types/Item";
 

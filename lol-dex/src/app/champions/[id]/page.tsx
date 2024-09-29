@@ -14,7 +14,6 @@ const ChampionsIdPage = async ({ params }: Props) => {
 	if (!data) {
 		return <div>Loading...</div>;
 	}
-	// console.log(data?.spells);
 
 	return (
 		<div className="flex flex-col justify-center items-center w-full">
