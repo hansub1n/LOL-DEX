@@ -2,8 +2,6 @@
 import { Champion } from "@/types/Champion";
 import { Item } from "@/types/Item";
 
-const apiKey = process.env.NEXT_PUBLIC_RIOT_API_KEY!;
-
 export const getVersion = async () => {
 	const res = await fetch(
 		"https://ddragon.leagueoflegends.com/api/versions.json"

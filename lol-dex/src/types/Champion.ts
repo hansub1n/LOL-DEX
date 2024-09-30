@@ -76,13 +76,19 @@ type Spell = {
 	costBurn: string; // 스킬 비용 문자열
 	effect: number[][]; // 스킬 효과 (레벨별)
 	effectBurn: string[]; // 스킬 효과 문자열
-	vars: any[]; // 추가 변수 정보
+	vars: SpellVar[]; // 추가 변수 정보
 	costType: string; // 비용 타입 (예: 마나)
 	maxammo: string; // 최대 탄약 수
 	range: number[]; // 스킬 범위 (레벨별)
 	rangeBurn: string; // 스킬 범위 문자열
 	image: Image; // 스킬 이미지
 	resource: string; // 리소스 타입
+};
+
+type SpellVar = {
+	link: string; // 변수와 연결된 값 (예: 'attackdamage')
+	coeff: number[]; // 계수 (레벨별 수치)
+	key: string; // 변수의 키
 };
 
 type LevelTip = {
