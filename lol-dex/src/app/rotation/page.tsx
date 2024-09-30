@@ -18,7 +18,10 @@ const RotationPage = () => {
 				const championsData = await fetchChampions();
 
 				setRotation(rotationData);
-				setChampions(championsData!);
+
+				if (championsData) {
+					setChampions(championsData);
+				}
 			} catch (error) {
 				console.log(error);
 			}
