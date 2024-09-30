@@ -16,12 +16,7 @@ export async function fetchChampions() {
 	try {
 		const version = await getVersion();
 		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
-			{
-				headers: {
-					"X-Roit_Token": apiKey,
-				},
-			}
+			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
 		);
 		const data = await res.json();
 		const champions: Champion[] = Object.values(data.data);
@@ -37,12 +32,7 @@ export async function fetchChampionDetail(id: string) {
 		const version = await getVersion();
 
 		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`,
-			{
-				headers: {
-					"X-Roit_Token": apiKey,
-				},
-			}
+			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
 		);
 		const data = await res.json();
 		const champion: Champion = data.data[id];
@@ -57,12 +47,7 @@ export async function fetchItemList() {
 	try {
 		const version = await getVersion();
 		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`,
-			{
-				headers: {
-					"X-Roit_Token": apiKey,
-				},
-			}
+			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
 		);
 		const data = await res.json();
 		const items: Item[] = Object.values(data.data);
