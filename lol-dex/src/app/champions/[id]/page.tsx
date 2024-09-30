@@ -28,7 +28,9 @@ const ChampionsIdPage = async ({ params }: Props) => {
 				</div>
 				<div className="flex items-end gap-[20px] m-[35px] ">
 					<h1 className=" text-[50px]">{data.name}</h1>:
-					<h2 className="mt-[10px] text-[20px]">{data.title}</h2>
+					<h2 className="mt-[10px] text-[20px] text-[#C8AA6E]">
+						{data.title}
+					</h2>
 				</div>
 
 				<div className="flex justify-start gap-[80px] items-start my-[90px] ml-[130px] mr-[50px] text-justify">
@@ -45,7 +47,7 @@ const ChampionsIdPage = async ({ params }: Props) => {
 							<p>{data.blurb}</p>
 						</div>
 						<div>
-							<p className="text-[20px] mb-[15px]">
+							<p className="text-[20px] mb-[15px] ">
 								{data.name}의 기술
 							</p>
 							<div className="flex flex-wrap gap-[20px]">
@@ -67,7 +69,7 @@ const ChampionsIdPage = async ({ params }: Props) => {
 											/>
 										</div>
 
-										<p className="text-[13px] mt-2">
+										<p className="text-[13px] text-[#9da1a9] mt-2">
 											{spell.description}
 										</p>
 									</div>

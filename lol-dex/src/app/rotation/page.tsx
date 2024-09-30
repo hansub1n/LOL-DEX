@@ -2,9 +2,10 @@
 "use client";
 import { Champion } from "@/types/Champion";
 import { ChampionRotation } from "@/types/ChampionRotation";
-import { fetchChampions, getChampionRotation } from "@/utils/riotApi";
+import { getChampionRotation } from "@/utils/riotApi";
 import React, { useEffect, useState } from "react";
 import { ChampionCard } from "../components/ChampionCard";
+import { fetchChampions } from "@/utils/serverApi";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<ChampionRotation | null>(null);
@@ -14,23 +15,16 @@ const RotationPage = () => {
 		const fetchRotationData = async () => {
 			try {
 				const rotationData = await getChampionRotation();
-				const championsData: Champion[] = await fetchChampions();
+				const championsData = await fetchChampions();
 
 				setRotation(rotationData);
-				setChampions(championsData);
+				setChampions(championsData!);
 			} catch (error) {
 				console.log(error);
 			}
 		};
 
-		// const fetchChampionsData = async () => {
-
-		// 	const championsData = await fetchChampions();
-		// 	setChampions(championsData);
-		// };
-
 		fetchRotationData();
-		// fetchChampionsData();
 	}, []);
 
 	if (!rotation) {
