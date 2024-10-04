@@ -2,7 +2,7 @@
 import { Champion } from "@/types/Champion";
 import { Item } from "@/types/Item";
 
-export const getVersion = async () => {
+const getVersion = async () => {
 	const res = await fetch(
 		"https://ddragon.leagueoflegends.com/api/versions.json"
 	);

@@ -1,4 +1,3 @@
-// RotationPage.tsx
 "use client";
 import { Champion } from "@/types/Champion";
 import { ChampionRotation } from "@/types/ChampionRotation";
@@ -30,15 +29,11 @@ const RotationPage = () => {
 		fetchRotationData();
 	}, []);
 
-	if (!rotation) {
-		return <div className="flex justify-center mt-[130px]">Loading...</div>;
-	}
-
 	let freeChampions: Champion[] = [];
 
 	if (champions !== null) {
 		freeChampions = champions.filter((champion) =>
-			rotation.freeChampionIds.includes(Number(champion.key))
+			rotation?.freeChampionIds.includes(Number(champion.key))
 		);
 	}
 

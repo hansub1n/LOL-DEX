@@ -8,6 +8,13 @@ type Props = {
 	};
 };
 
+export function generateMetadata({ params }: Props) {
+	return {
+		title: `LoL-Dex : ${params.id}`,
+		description: `${params.id} 상세 페이지`,
+	};
+}
+
 const ChampionsIdPage = async ({ params }: Props) => {
 	const data = await fetchChampionDetail(params.id);
 

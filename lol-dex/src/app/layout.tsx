@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -37,7 +39,9 @@ export default function RootLayout({
 						<Link href={"/rotation"}>챔피언 로테이션</Link>
 					</nav>
 				</header>
-				<div className="mt-[55.99px]">{children}</div>
+				<Suspense fallback={<Loading />}>
+					<div className="mt-[55.99px]">{children}</div>
+				</Suspense>
 			</body>
 		</html>
 	);
