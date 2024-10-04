@@ -82,19 +82,24 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
 
 -   **기능 요약**<br/>
 
-    -   Riot API를 사용하여 챔피언, 아이템, 로테이션 정보를 조회
+    -   Riot API 사용하여 챔피언, 아이템, 로테이션 정보 조회
 
 -   **페이지 이동**<br/>
 
-    -   `Next.js`의 `Link` 태그를 사용하여 페이지 간 이동을 처리합니다.<br/>
+    -   `Next.js`의 `Link` 태그 사용하여 페이지 간 이동 처리<br/>
 
 -   **상태 관리**<br/>
 
-    -   `useEffect`와 `useState` 훅을 사용하여 데이터를 가져오고 상태를 관리합니다.<br/>
+    -   `useEffect`와 `useState` 훅 사용하여 데이터 상태 관리<br/>
 
--   **상태 관리**<br/>
-    -   `useEffect`와 `useState` 훅을 사용하여 데이터를 가져오고 상태를 관리합니다.<br/><br/>
+-   **SEO 향상**<br/>
+    -   Route Handlers 및 Next.js의 메타데이터, 이미지 태그 활용해 SEO 성능 개선<br/><br/>
 
 #### 개발 환경
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%230x646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%234B5563.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
