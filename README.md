@@ -95,6 +95,10 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
 -   **SEO 향상**<br/>
     -   Route Handlers 및 Next.js의 메타데이터, 이미지 태그 활용해 SEO 성능 개선<br/><br/>
 
+#### 배포링크
+
+https://lol-dex-amber.vercel.app/<br/><br/>
+
 #### 개발 환경
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
