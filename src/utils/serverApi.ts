@@ -24,12 +24,9 @@ export async function fetchChampions() {
 		const data = await res.json();
 		const champions: Champion[] = Object.values(data.data);
 
-		if (Math.random() > 0.4) {
-			return champions;
-		}
+		return champions;
 	} catch (error) {
 		console.log(error);
-		// throw new Error("무료 챔피언 데이터를 가져오는 데 실패했습니다.");
 	}
 }
 
@@ -47,9 +44,7 @@ export async function fetchChampionDetail(id: string) {
 		const data = await res.json();
 		const champion: Champion = data.data[id];
 
-		if (Math.random() > 0.4) {
-			return champion;
-		}
+		return champion;
 	} catch (error) {
 		console.log(error);
 	}
@@ -65,9 +60,7 @@ export async function fetchItemList() {
 		const data = await res.json();
 		const items: Item[] = Object.values(data.data);
 
-		if (Math.random() > 0.4) {
-			return items;
-		}
+		return items;
 	} catch (error) {
 		console.log(error);
 	}
