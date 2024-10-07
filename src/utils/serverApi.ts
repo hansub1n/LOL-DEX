@@ -3,11 +3,15 @@ import { Champion } from "@/types/Champion";
 import { Item } from "@/types/Item";
 
 const getVersion = async () => {
-	const res = await fetch(
-		"https://ddragon.leagueoflegends.com/api/versions.json"
-	);
-	const data = await res.json();
-	return data[0];
+	try {
+		const res = await fetch(
+			"https://ddragon.leagueoflegends.com/api/versions.json"
+		);
+		const data = await res.json();
+		return data[0];
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export async function fetchChampions() {
@@ -16,12 +20,16 @@ export async function fetchChampions() {
 		const res = await fetch(
 			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
 		);
+
 		const data = await res.json();
 		const champions: Champion[] = Object.values(data.data);
 
-		return champions;
+		if (Math.random() > 0.4) {
+			return champions;
+		}
 	} catch (error) {
 		console.log(error);
+		// throw new Error("무료 챔피언 데이터를 가져오는 데 실패했습니다.");
 	}
 }
 
@@ -35,10 +43,13 @@ export async function fetchChampionDetail(id: string) {
 				cache: "no-store",
 			}
 		);
+
 		const data = await res.json();
 		const champion: Champion = data.data[id];
 
-		return champion;
+		if (Math.random() > 0.4) {
+			return champion;
+		}
 	} catch (error) {
 		console.log(error);
 	}
@@ -50,9 +61,13 @@ export async function fetchItemList() {
 		const res = await fetch(
 			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
 		);
+
 		const data = await res.json();
 		const items: Item[] = Object.values(data.data);
-		return items;
+
+		if (Math.random() > 0.4) {
+			return items;
+		}
 	} catch (error) {
 		console.log(error);
 	}

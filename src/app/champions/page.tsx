@@ -8,7 +8,7 @@ const ChampionsPage = async () => {
 	const data = await fetchChampions();
 
 	if (!data) {
-		return <div>Loading...</div>;
+		throw new Error("챔피언 데이터를 가져오는 데 실패했습니다");
 	}
 
 	return (

@@ -6,10 +6,9 @@ import { ItemCard } from "../components/ItemCard";
 
 const ItemPage = async () => {
 	const data = await fetchItemList();
-	console.log(data?.[0]);
 
 	if (!data) {
-		return <div>Loading...</div>;
+		throw new Error("아이템 데이터를 가져오는 데 실패했습니다");
 	}
 
 	return (

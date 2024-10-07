@@ -28,5 +28,6 @@ export async function GET() {
 		);
 	}
 	const data: ChampionRotation[] = await res.json();
+
 	return NextResponse.json(data);
 }
