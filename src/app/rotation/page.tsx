@@ -5,12 +5,10 @@ import { getChampionRotation } from "@/utils/riotApi";
 import React, { useEffect, useState } from "react";
 import { ChampionCard } from "../components/ChampionCard";
 import { fetchChampions } from "@/utils/serverApi";
-import ErrorBoundary from "../components/ErrorBoundary";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<ChampionRotation | null>(null);
 	const [champions, setChampions] = useState<Champion[] | null>(null);
-	const [error, setError] = useState<Error | null>(null);
 
 	const fetchRotationData = async () => {
 		try {
@@ -24,8 +22,9 @@ const RotationPage = () => {
 
 			setRotation(rotationData);
 			setChampions(championsData);
-		} catch (err) {
-			setError(err as Error);
+		} catch (error) {
+			console.log(error);
+			throw error;
 		}
 	};
 
@@ -41,22 +40,11 @@ const RotationPage = () => {
 		);
 	}
 
-	const reset = () => {
-		setError(null);
-		setRotation(null);
-		setChampions(null);
-		fetchRotationData();
-	};
-
 	return (
-		<ErrorBoundary error={error} reset={reset}>
-			<div className="flex flex-col items-center w-full min-w-[100%] p-[70px] gap-[50px]">
-				<h1 className="text-[25px] text-[#C8AA6E]">
-					이번 주 무료 챔피언
-				</h1>
-				<ChampionCard data={freeChampions} />
-			</div>
-		</ErrorBoundary>
+		<div className="flex flex-col items-center w-full min-w-[100%] p-[70px] gap-[50px]">
+			<h1 className="text-[25px] text-[#C8AA6E]">이번 주 무료 챔피언</h1>
+			<ChampionCard data={freeChampions} />
+		</div>
 	);
 };
 
