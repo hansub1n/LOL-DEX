@@ -10,7 +10,7 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
 <summary>프로젝트 구조</summary>
 ...
 📦LoL-Dex<br/>
- ┣ 📦src
+📦src
  ┣ 📂app
  ┃ ┣ 📂api
  ┃ ┃ ┗ 📂rotation
@@ -22,7 +22,6 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
  ┃ ┃ ┗ 📜page.tsx
  ┃ ┣ 📂components
  ┃ ┃ ┣ 📜ChampionCard.tsx
- ┃ ┃ ┣ 📜ErrorBoundary.tsx
  ┃ ┃ ┗ 📜ItemCard.tsx
  ┃ ┣ 📂fonts
  ┃ ┃ ┣ 📜GeistMonoVF.woff
