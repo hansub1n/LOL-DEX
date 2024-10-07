@@ -17,10 +17,12 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
  ┃ ┃ ┃ ┗ 📜route.ts
  ┃ ┣ 📂champions
  ┃ ┃ ┣ 📂[id]
+ ┃ ┃ ┃ ┣ 📜loading.tsx
  ┃ ┃ ┃ ┗ 📜page.tsx
  ┃ ┃ ┗ 📜page.tsx
  ┃ ┣ 📂components
  ┃ ┃ ┣ 📜ChampionCard.tsx
+ ┃ ┃ ┣ 📜ErrorBoundary.tsx
  ┃ ┃ ┗ 📜ItemCard.tsx
  ┃ ┣ 📂fonts
  ┃ ┃ ┣ 📜GeistMonoVF.woff
@@ -29,6 +31,7 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
  ┃ ┃ ┗ 📜page.tsx
  ┃ ┣ 📂rotation
  ┃ ┃ ┗ 📜page.tsx
+ ┃ ┣ 📜error.tsx
  ┃ ┣ 📜favicon.ico
  ┃ ┣ 📜globals.css
  ┃ ┣ 📜layout.tsx
@@ -93,7 +96,17 @@ Riot API를 활용한 리그 오브 레전드 정보 앱<br/><br/>
     -   `useEffect`와 `useState` 훅 사용하여 데이터 상태 관리<br/>
 
 -   **SEO 향상**<br/>
+
     -   Route Handlers 및 Next.js의 메타데이터, 이미지 태그 활용해 SEO 성능 개선<br/><br/>
+
+#### 로딩 및 에러 핸들링
+
+-   **로딩 상태**<br/>
+
+    -   데이터를 불러오는 동안 로딩 상태를 표시합니다. 각 페이지에 로딩 컴포넌트를 구현하여 사용자에게 데이터가 로딩 중임을 시각적으로 알립니다.
+
+-   **에러 핸들링**<br/>
+    -   API 요청 중 오류가 발생하면 `ErrorBoundary` 컴포넌트를 통해 에러 메시지를 사용자에게 전달합니다. 사용자는 에러 발생 시 대체 UI를 통해 문제를 인지할 수 있습니다.<br/><br/>
 
 #### 배포링크
 
