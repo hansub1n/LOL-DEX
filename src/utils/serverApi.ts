@@ -2,66 +2,66 @@
 import { Champion } from "@/types/Champion";
 import { Item } from "@/types/Item";
 
+const DATA_DRAGON_URL = "https://ddragon.leagueoflegends.com";
+
 const getVersion = async () => {
-	try {
-		const res = await fetch(
-			"https://ddragon.leagueoflegends.com/api/versions.json"
-		);
-		const data = await res.json();
-		return data[0];
-	} catch (error) {
-		console.log(error);
+	const res = await fetch(`${DATA_DRAGON_URL}/api/versions.json`);
+
+	if (!res.ok) {
+		throw new Error("버전 확인에 실패했습니다");
 	}
+
+	const data = await res.json();
+	return data[0];
 };
 
-export async function fetchChampions() {
-	try {
-		const version = await getVersion();
-		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
-		);
+export async function fetchChampionList() {
+	const version = await getVersion();
+	const res = await fetch(
+		`${DATA_DRAGON_URL}/cdn/${version}/data/ko_KR/champion.json`
+	);
 
-		const data = await res.json();
-		const champions: Champion[] = Object.values(data.data);
-
-		return champions;
-	} catch (error) {
-		console.log(error);
+	if (!res.ok) {
+		throw new Error("챔피언 리스트 확인에 실패했습니다");
 	}
+
+	const data = await res.json();
+	const champions: Champion[] = Object.values(data.data);
+
+	return champions;
 }
 
 export async function fetchChampionDetail(id: string) {
-	try {
-		const version = await getVersion();
+	const version = await getVersion();
+	const res = await fetch(
+		`${DATA_DRAGON_URL}/cdn/${version}/data/ko_KR/champion/${id}.json`,
+		{
+			cache: "no-store",
+		}
+	);
 
-		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`,
-			{
-				cache: "no-store",
-			}
-		);
-
-		const data = await res.json();
-		const champion: Champion = data.data[id];
-
-		return champion;
-	} catch (error) {
-		console.log(error);
+	if (!res.ok) {
+		throw new Error("챔피언 정보 확인에 실패했습니다");
 	}
+
+	const data = await res.json();
+	const champion: Champion = data.data[id];
+
+	return champion;
 }
 
 export async function fetchItemList() {
-	try {
-		const version = await getVersion();
-		const res = await fetch(
-			`https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
-		);
+	const version = await getVersion();
+	const res = await fetch(
+		`${DATA_DRAGON_URL}/cdn/${version}/data/ko_KR/item.json`
+	);
 
-		const data = await res.json();
-		const items: Item[] = Object.values(data.data);
-
-		return items;
-	} catch (error) {
-		console.log(error);
+	if (!res.ok) {
+		throw new Error("아이템 리스트 확인에 실패했습니다");
 	}
+
+	const data = await res.json();
+	const items: Item[] = Object.values(data.data);
+
+	return items;
 }

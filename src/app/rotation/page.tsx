@@ -4,31 +4,23 @@ import { ChampionRotation } from "@/types/ChampionRotation";
 import { getChampionRotation } from "@/utils/riotApi";
 import React, { useEffect, useState } from "react";
 import { ChampionCard } from "../components/ChampionCard";
-import { fetchChampions } from "@/utils/serverApi";
+import { fetchChampionList } from "@/utils/serverApi";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<ChampionRotation | null>(null);
 	const [champions, setChampions] = useState<Champion[] | null>(null);
 
-	const fetchRotationData = async () => {
-		try {
-			const rotationData = await getChampionRotation();
-			const championsData = await fetchChampions();
-			if (!championsData || !rotationData) {
-				throw new Error(
-					"무료 챔피언 데이터를 가져오는 데 실패했습니다"
-				);
-			}
+	useEffect(() => {
+		const fetchRotationData = async () => {
+			const [rotationData, championsData] = await Promise.all([
+				getChampionRotation(),
+				fetchChampionList(),
+			]);
 
 			setRotation(rotationData);
 			setChampions(championsData);
-		} catch (error) {
-			console.log(error);
-			throw error;
-		}
-	};
+		};
 
-	useEffect(() => {
 		fetchRotationData();
 	}, []);
 

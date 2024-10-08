@@ -1,11 +1,11 @@
-import { fetchChampions } from "@/utils/serverApi";
+import { fetchChampionList } from "@/utils/serverApi";
 import React from "react";
 import { ChampionCard } from "../components/ChampionCard";
 
 export const revalidate = 86400;
 
 const ChampionsPage = async () => {
-	const data = await fetchChampions();
+	const data = await fetchChampionList();
 
 	if (!data) {
 		throw new Error("챔피언 데이터를 가져오는 데 실패했습니다");
