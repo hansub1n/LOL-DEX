@@ -35,7 +35,11 @@ const RotationPage = () => {
 	return (
 		<div className="flex flex-col items-center w-full min-w-[100%] p-[70px] gap-[50px]">
 			<h1 className="text-[25px] text-[#C8AA6E]">이번 주 무료 챔피언</h1>
-			<ChampionCard data={freeChampions} />
+			<div className="grid grid-cols-5 gap-[35px]">
+				{freeChampions.map((champ) => (
+					<ChampionCard champ={champ} key={champ.id} />
+				))}
+			</div>
 		</div>
 	);
 };

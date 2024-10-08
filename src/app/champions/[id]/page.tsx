@@ -19,10 +19,6 @@ export function generateMetadata({ params }: Props) {
 const ChampionsIdPage = async ({ params }: Props) => {
 	const data = await fetchChampionDetail(params.id);
 
-	if (!data) {
-		throw new Error("챔피언 데이터를 가져오는 데 실패했습니다");
-	}
-
 	return (
 		<div className="flex flex-col justify-center items-center w-full">
 			<div className="w-full">
